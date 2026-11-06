@@ -1,0 +1,26 @@
+# ~/.config/nano/nanorc
+
+# ---- 基础行为 ----
+set autoindent
+set tabsize 4
+set tabstospaces
+set linenumbers
+set historylog
+set mouse
+set nohelp
+
+# ---- 常用键位 ----
+bind ^X  cut        main
+bind ^C  copytext   main
+bind ^V  uncut      all
+bind ^Z  undo       main
+bind ^Y  redo       main
+bind ^S  savefile   all
+bind ^Q  exit       all
+
+# ---- 搜索替换 ----
+bind ^F  whereis      all
+bind F3  findnext     all
+bind F2  findprevious all
+bind ^R  replace      all
+bind ^G  gotoline     all
