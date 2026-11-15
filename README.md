@@ -1,10 +1,8 @@
 # Mini Editor
 
-(This project is not yet completed, the following is the development plan)
-
 Mini-editor is a text editor suitable for running in the console, using only ASCII character control, you can complete text editing operations without taking your hands off the keyboard.
 
-There are two modes in the mini-editor, edit mode and command mode, which can be switched by pressing the Esc key. After starting the mini-editor, it defaults to the editing mode, and after pressing the Esc key to enter the command mode, press the Esc key again to return to the editing mode.
+There are two modes in the mini-editor, edit mode and command mode, which can be switched by pressing the Esc key. After starting the mini-editor, it defaults to the command mode, and after pressing the Esc key to enter the edit mode, press the Esc key again to return to the command mode.
 
 The mini-editor wants to bring the same operating experience as other traditional text editors, so it uses an almost identical hotkey design, but does not use the Ctrl key as a key combination. For example, if you use Ctrl-Z to indicate undo on other editors, you can press the Z key in the mini-editor command mode to do the same. Pressing Shift-Z produces an effect similar to Ctrl-Shift-Z.
 
@@ -18,7 +16,7 @@ Install mini-editor (not implemented):
 
 > pip install mini-editor
 
-Using mini-editor to create a blank document :
+Using mini-editor to create a blank document:
 
 > $ mini
 
@@ -28,18 +26,19 @@ Using mini-editor to open a file:
 
 ## Operation Instructions
 
-When you open a new file, mini-editor is in edit mode, press Esc to enter command mode. In command mode, you can moving cursor, editing text, or operating file. If you want to exit command mode, press Esc again.
+When the mini-editor is started, it is in command mode. In command mode, you can move the cursor, edit text, or operate files. If you want to type text, press Esc to enter edit mode, press Esc again to return to command mode.
 
 ### Cursor Operations
 
 ```
 [   ] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [I] [ ] [ ]
-[    ] [ ] [ ] [ ] [ ] [G] [ ] [J] [K] [L]
+[    ] [ ] [ ] [ ] [ ] [ ] [ ] [J] [K] [L]
 [Shift] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
 ```
 
 - I/J/K/L: Move cursor
-- Shift-I/J/K/L: Select text
+- [/]: Page up/down
+- Shift-I/J/K/L/[/]: Move cursor and select text
 
 ### Basic Operations
 
@@ -67,28 +66,35 @@ When you open a new file, mini-editor is in edit mode, press Esc to enter comman
 - F: Find in whole text
 - Shift-F: Reverse find in whole text
 - G: Jump to position
+- Shift-G: Select to the jumped position
 
 ### Text Operations
 
 ```
-[ ] [ ] [ ] [ ] [ ] [ ] [U] [ ] [ ] [ ]
+[ ] [ ] [ ] [ ] [T] [ ] [U] [ ] [ ] [ ]
  [ ] [ ] [D] [ ] [ ] [ ] [ ] [ ] [ ]
-  [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+  [ ] [ ] [ ] [ ] [B] [ ] [ ]
 ```
 
 - U: Convert selected text to lowercase
 - Shift-U: Convert selected text to uppercase
 - D: Duplicate the current line
 - Shift-D: Delete the current line
+- T: Increase indent
+- Shift-T: Decrease indent
+- B: Delete backward
+- Shift-B: Delete forward
 
 ### File Operations
 
 ```
-[ ] [W] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
+[Q] [W] [ ] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
  [ ] [S] [ ] [ ] [ ] [ ] [ ] [ ] [ ]
   [ ] [ ] [ ] [ ] [ ] [ ] [ ]
 ```
 
 - S: Save file
 - Shift-S: Save as another filename
-- W: Close file
+- W: Close file, asks to save if modified
+- Q: Quit, asks to save if modified
+- Shift-Q: Quit without saving
